@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.rene.generate-commit</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>input.scriptfilter</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>action.script</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Rene Rodriguez</string>
+	<key>description</key>
+	<string>Generate a concise, meaningful git commit message from a description of your changes.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Generate Commit Message</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argtype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>1023</integer>
+				<key>keyword</key>
+				<string>{var:KEYWORD}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Preparing options…</string>
+				<key>script</key>
+				<string>./script_filter.py {query}</string>
+				<key>subtext</key>
+				<string>Type or paste a description of your changes</string>
+				<key>title</key>
+				<string>Generate Commit Message</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>input.scriptfilter</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>1023</integer>
+				<key>script</key>
+				<string>./action.py {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>action.script</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>## Generate Commit Message
+
+Type `commit` followed by a description of your changes. Select a style variant to customize the output.
+
+The generated commit message is copied directly to your clipboard. Press ⌘V to paste it.
+
+### Setup
+Enter your OpenAI API key in the workflow configuration.
+
+### Usage
+- `commit &lt;description&gt;` — generate a commit message (standard style)
+- Select "Generate Commit Message [Conventional]" for Conventional Commits format (feat:, fix:, etc.)
+- Select "Generate Commit Message [Detailed]" for a subject + body
+- Select "Generate Commit Message [Short]" for an ultra-brief message</string>
+	<key>uidata</key>
+	<dict>
+		<key>action.script</key>
+		<dict>
+			<key>xpos</key>
+			<real>380</real>
+			<key>ypos</key>
+			<real>100</real>
+		</dict>
+		<key>input.scriptfilter</key>
+		<dict>
+			<key>xpos</key>
+			<real>100</real>
+			<key>ypos</key>
+			<real>100</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>sk-...</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Your API key from platform.openai.com</string>
+			<key>label</key>
+			<string>OpenAI API Key</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>OPENAI_API_KEY</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>commit</string>
+				<key>placeholder</key>
+				<string>commit</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>The keyword to trigger this workflow</string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>KEYWORD</string>
+		</dict>
+	</array>
+	<key>variables</key>
+	<dict>
+		<key>KEYWORD</key>
+		<string>commit</string>
+		<key>OPENAI_API_KEY</key>
+		<string></string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>OPENAI_API_KEY</string>
+	</array>
+
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/renerodr/alfred-generate-commit-message-workflow</string>
+</dict>
+</plist>
